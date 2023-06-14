@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cal_com (0.0.2)
+    cal_com (0.0.3.pre.alpha)
 
 GEM
   remote: https://rubygems.org/

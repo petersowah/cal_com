@@ -8,22 +8,22 @@ module CalCom
   class << self
     API_KEY = ENV['CAL_COM_API_KEY']
     def initialize
-      @client = Faraday.new(url: 'https://api.cal.com/v1')
+      @client = Faraday.new(url: 'https://api.cal.com/v1', params: { apiKey: API_KEY })
     end
 
     def attendees
-      response = @client.get("attendees?apiKey=#{API_KEY}")
+      response = @client.get('attendees')
       JSON.parse(response.body)
     end
 
     def create_booking(params)
       @params = params
-      response = @client.post("/bookings?apiKey=#{API_KEY}", booking_payload.to_json)
+      response = @client.post('/bookings', booking_payload.to_json)
       JSON.parse(response.body)
     end
 
     def bookings
-      response = @client.get("bookings?apiKey=#{API_KEY}")
+      response = @client.get('bookings')
       JSON.parse(response.body)
     end
 
