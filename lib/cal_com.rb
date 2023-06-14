@@ -37,7 +37,6 @@ module CalCom
         "description": @params[:description],
         "start": @params[:start],
         "end": @params[:end],
-        "attendees": @params[:attendees],
         "location": @params[:location],
         "timeZone": @params[:timezone],
         "metadata": {},
