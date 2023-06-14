@@ -6,9 +6,8 @@ module CalCom
   class Error < StandardError; end
 
   class << self
-    API_KEY = ENV['CAL_COM_API_KEY']
     def initialize
-      @client = Faraday.new(url: 'https://api.cal.com/v1', params: { apiKey: API_KEY })
+      @client = Faraday.new(url: 'https://api.cal.com/v1', params: { apiKey: ENV['CAL_COM_API_KEY'] })
     end
 
     def attendees
