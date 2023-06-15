@@ -8,7 +8,11 @@ require 'json'
 module CalCom
   class << self
     def initialize
-      @client = Faraday.new(url: 'https://api.cal.com/v1', params: { apiKey: ENV['CAL_COM_API_KEY'] })
+      @client = Faraday.new(
+        url: 'https://api.cal.com/v1',
+        params: { apiKey: ENV['CAL_COM_API_KEY'] },
+        headers: { 'Content-Type' => 'application/json' }
+      )
     end
 
     def attendees
@@ -35,10 +39,11 @@ module CalCom
         "title": @params[:title],
         "eventTypeId": @params[:eventTypeId], # "eventTypeId": "string",
         "description": @params[:description],
-        "start": @params[:start_time],
-        "end": @params[:end_time],
+        "start": @params[:start_time].to_s,
+        "end": @params[:end_time].to_s,
         "location": @params[:location],
         "timeZone": @params[:timezone],
+        "language": @params[:language],
         "metadata": {},
         "customInputs": []
       }
