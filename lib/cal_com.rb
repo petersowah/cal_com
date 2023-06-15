@@ -1,18 +1,12 @@
 # frozen_string_literal: true
 
 require_relative 'cal_com/version'
-require 'faraday'
-require 'json'
 
 # this is the main module for the gem
 module CalCom
-  class << self
+  class CalCom
     def initialize
-      @client = Faraday.new(
-        url: 'https://api.cal.com/v1',
-        params: { apiKey: ENV['CAL_COM_API_KEY'] },
-        headers: { 'Content-Type' => 'application/json' }
-      )
+      @client = Faraday.new(url: 'https://api.cal.com/v1', params: { apiKey: ENV['CAL_COM_API_KEY'] }, headers: { 'Content-Type' => 'application/json' })
     end
 
     def attendees
