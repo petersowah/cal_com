@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require_relative 'cal_com/version'
+require 'faraday'
+require 'json'
+
 # this is the main module for the gem
 module CalCom
   class << self
