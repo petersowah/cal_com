@@ -3,8 +3,6 @@
 require_relative 'cal_com/version'
 # this is the main module for the gem
 module CalCom
-  class Error < StandardError; end
-
   class << self
     def initialize
       @client = Faraday.new(url: 'https://api.cal.com/v1', params: { apiKey: ENV['CAL_COM_API_KEY'] })
